@@ -37,31 +37,32 @@ Timespan:('0'|([1-9][0-9]*))Colon
 
 
 timeSpan : Time|Timespan;
-dataTime: Data Time;
+
+dataTime: Data('|')Time;
 
 expressionResultData :
-timeSpan Add dataTime|
-timeSpan Add expressionResultData|
-dataTime (Substract|Add) timeSpan|
-dataTime (Add|Substract) expressionResultTime|
-expressionResultData (Substract|Add) timeSpan|
-expressionResultData (Substract|Add) expressionResultTime
+timeSpan op=Add dataTime|
+timeSpan op=Add expressionResultData|
+dataTime op=(Substract|Add) timeSpan|
+dataTime op=(Add|Substract) expressionResultTime|
+expressionResultData op=(Substract|Add) timeSpan|
+expressionResultData op=(Substract|Add) expressionResultTime
 ;
 
 expressionResultDataRightERT:
-expressionResultTime Add dataTime|
-expressionResultTime Add expressionResultData;
+expressionResultTime op=Add dataTime|
+expressionResultTime op=Add expressionResultData;
 
 expressionResultTime:
-dataTime Substract dataTime|
-dataTime Substract expressionResultData|
-expressionResultData Substract dataTime|
-expressionResultData Substract expressionResultData|
+dataTime op=Substract dataTime|
+dataTime op=Substract expressionResultData|
+expressionResultData op=Substract dataTime|
+expressionResultData op=Substract expressionResultData|
 
-timeSpan(Add|Substract)timeSpan|
-expressionResultTime (Add|Substract)timeSpan|
-timeSpan (Add|Substract) expressionResultTime
-expressionResultTime (Add|Substract)expressionResultTime;
+timeSpan op=(Add|Substract)timeSpan|
+expressionResultTime op=(Add|Substract)timeSpan|
+timeSpan op=(Add|Substract) expressionResultTime
+expressionResultTime op=(Add|Substract)expressionResultTime;
 
 
 
