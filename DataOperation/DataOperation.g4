@@ -41,25 +41,29 @@ dataTime: Data Time;
 
 expressionResultData :
 timeSpan Add dataTime|
-dataTime (Substract|Add) timeSpan|
-expressionResultData (Substract|Add) expressionResultTime|
-expressionResultData (Substract|Add) timeSpan|
 timeSpan Add expressionResultData|
-dataTime (Add|Substract) expressionResultTime
+dataTime (Substract|Add) timeSpan|
+dataTime (Add|Substract) expressionResultTime|
+expressionResultData (Substract|Add) timeSpan|
+expressionResultData (Substract|Add) expressionResultTime
 ;
 
-expressionResultTime:
-dataTime Substract dataTime|
-timeSpan(Add|Substract)timeSpan|
-expressionResultTime (Add|Substract)expressionResultTime|
-expressionResultData Substract expressionResultData|
-expressionResultTime (Add|Substract)timeSpan|
-expressionResultData Substract dataTime|
-dataTime Substract expressionResultData|
-timeSpan (Add|Substract) expressionResultTime;
-
-expressionResultDataRight:
+expressionResultDataRightERT:
 expressionResultTime Add dataTime|
 expressionResultTime Add expressionResultData;
 
-expressionRoot : expressionResultData|expressionResultTime|expressionResultDataRight|timeSpan|dataTime;
+expressionResultTime:
+dataTime Substract dataTime|
+dataTime Substract expressionResultData|
+expressionResultData Substract dataTime|
+expressionResultData Substract expressionResultData|
+
+timeSpan(Add|Substract)timeSpan|
+expressionResultTime (Add|Substract)timeSpan|
+timeSpan (Add|Substract) expressionResultTime
+expressionResultTime (Add|Substract)expressionResultTime;
+
+
+
+
+expressionRoot : expressionResultData|expressionResultDataRightERT|expressionResultTime|dataTime|timeSpan;

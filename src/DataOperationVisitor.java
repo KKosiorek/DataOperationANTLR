@@ -10,17 +10,11 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface DataOperationVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link DataOperationParser#data}.
+	 * Visit a parse tree produced by {@link DataOperationParser#timeSpan}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitData(DataOperationParser.DataContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DataOperationParser#time}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTime(DataOperationParser.TimeContext ctx);
+	T visitTimeSpan(DataOperationParser.TimeSpanContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DataOperationParser#dataTime}.
 	 * @param ctx the parse tree
@@ -33,6 +27,12 @@ public interface DataOperationVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitExpressionResultData(DataOperationParser.ExpressionResultDataContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DataOperationParser#expressionResultDataRightERT}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpressionResultDataRightERT(DataOperationParser.ExpressionResultDataRightERTContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DataOperationParser#expressionResultTime}.
 	 * @param ctx the parse tree

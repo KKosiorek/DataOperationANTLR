@@ -15,25 +15,13 @@ public class DataOperationBaseListener implements DataOperationListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterData(DataOperationParser.DataContext ctx) { }
+	@Override public void enterTimeSpan(DataOperationParser.TimeSpanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitData(DataOperationParser.DataContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTime(DataOperationParser.TimeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTime(DataOperationParser.TimeContext ctx) { }
+	@Override public void exitTimeSpan(DataOperationParser.TimeSpanContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -58,6 +46,18 @@ public class DataOperationBaseListener implements DataOperationListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitExpressionResultData(DataOperationParser.ExpressionResultDataContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExpressionResultDataRightERT(DataOperationParser.ExpressionResultDataRightERTContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpressionResultDataRightERT(DataOperationParser.ExpressionResultDataRightERTContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

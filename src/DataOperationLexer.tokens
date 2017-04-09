@@ -8,6 +8,7 @@ Dash=7
 Dot=8
 Data=9
 Time=10
+Timespan=11
 '+'=3
 '/'=5
 ':'=6

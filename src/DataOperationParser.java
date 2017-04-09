@@ -1,5 +1,4 @@
 // Generated from DataOperation.g4 by ANTLR 4.6
-
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -18,13 +17,13 @@ public class DataOperationParser extends Parser {
 		new PredictionContextCache();
 	public static final int
 		WhiteSpace=1, NewLine=2, Add=3, Substract=4, Slash=5, Colon=6, Dash=7, 
-		Dot=8, Data=9, Time=10;
+		Dot=8, Data=9, Time=10, Timespan=11;
 	public static final int
-		RULE_data = 0, RULE_time = 1, RULE_dataTime = 2, RULE_expressionResultData = 3, 
+		RULE_timeSpan = 0, RULE_dataTime = 1, RULE_expressionResultData = 2, RULE_expressionResultDataRightERT = 3, 
 		RULE_expressionResultTime = 4, RULE_expressionRoot = 5;
 	public static final String[] ruleNames = {
-		"data", "time", "dataTime", "expressionResultData", "expressionResultTime", 
-		"expressionRoot"
+		"timeSpan", "dataTime", "expressionResultData", "expressionResultDataRightERT", 
+		"expressionResultTime", "expressionRoot"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -32,7 +31,7 @@ public class DataOperationParser extends Parser {
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, "WhiteSpace", "NewLine", "Add", "Substract", "Slash", "Colon", "Dash", 
-		"Dot", "Data", "Time"
+		"Dot", "Data", "Time", "Timespan"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -83,77 +82,45 @@ public class DataOperationParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
-	public static class DataContext extends ParserRuleContext {
-		public TerminalNode Data() { return getToken(DataOperationParser.Data, 0); }
-		public DataContext(ParserRuleContext parent, int invokingState) {
+	public static class TimeSpanContext extends ParserRuleContext {
+		public TerminalNode Time() { return getToken(DataOperationParser.Time, 0); }
+		public TerminalNode Timespan() { return getToken(DataOperationParser.Timespan, 0); }
+		public TimeSpanContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_data; }
+		@Override public int getRuleIndex() { return RULE_timeSpan; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataOperationListener ) ((DataOperationListener)listener).enterData(this);
+			if ( listener instanceof DataOperationListener ) ((DataOperationListener)listener).enterTimeSpan(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataOperationListener ) ((DataOperationListener)listener).exitData(this);
+			if ( listener instanceof DataOperationListener ) ((DataOperationListener)listener).exitTimeSpan(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof DataOperationVisitor ) return ((DataOperationVisitor<? extends T>)visitor).visitData(this);
+			if ( visitor instanceof DataOperationVisitor ) return ((DataOperationVisitor<? extends T>)visitor).visitTimeSpan(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final DataContext data() throws RecognitionException {
-		DataContext _localctx = new DataContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_data);
+	public final TimeSpanContext timeSpan() throws RecognitionException {
+		TimeSpanContext _localctx = new TimeSpanContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_timeSpan);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(12);
-			match(Data);
+			_la = _input.LA(1);
+			if ( !(_la==Time || _la==Timespan) ) {
+			_errHandler.recoverInline(this);
 			}
-		}
-		catch (RecognitionException re) {
-			_localctx.exception = re;
-			_errHandler.reportError(this, re);
-			_errHandler.recover(this, re);
-		}
-		finally {
-			exitRule();
-		}
-		return _localctx;
-	}
-
-	public static class TimeContext extends ParserRuleContext {
-		public TerminalNode Time() { return getToken(DataOperationParser.Time, 0); }
-		public TimeContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_time; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof DataOperationListener ) ((DataOperationListener)listener).enterTime(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof DataOperationListener ) ((DataOperationListener)listener).exitTime(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof DataOperationVisitor ) return ((DataOperationVisitor<? extends T>)visitor).visitTime(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-
-	public final TimeContext time() throws RecognitionException {
-		TimeContext _localctx = new TimeContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_time);
-		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(14);
-			match(Time);
+			else {
+				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+				_errHandler.reportMatch(this);
+				consume();
+			}
 			}
 		}
 		catch (RecognitionException re) {
@@ -168,12 +135,8 @@ public class DataOperationParser extends Parser {
 	}
 
 	public static class DataTimeContext extends ParserRuleContext {
-		public DataContext data() {
-			return getRuleContext(DataContext.class,0);
-		}
-		public TimeContext time() {
-			return getRuleContext(TimeContext.class,0);
-		}
+		public TerminalNode Data() { return getToken(DataOperationParser.Data, 0); }
+		public TerminalNode Time() { return getToken(DataOperationParser.Time, 0); }
 		public DataTimeContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -195,14 +158,14 @@ public class DataOperationParser extends Parser {
 
 	public final DataTimeContext dataTime() throws RecognitionException {
 		DataTimeContext _localctx = new DataTimeContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_dataTime);
+		enterRule(_localctx, 2, RULE_dataTime);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(16);
-			data();
-			setState(17);
-			time();
+			setState(14);
+			match(Data);
+			setState(15);
+			match(Time);
 			}
 		}
 		catch (RecognitionException re) {
@@ -217,17 +180,17 @@ public class DataOperationParser extends Parser {
 	}
 
 	public static class ExpressionResultDataContext extends ParserRuleContext {
+		public TimeSpanContext timeSpan() {
+			return getRuleContext(TimeSpanContext.class,0);
+		}
+		public TerminalNode Add() { return getToken(DataOperationParser.Add, 0); }
 		public DataTimeContext dataTime() {
 			return getRuleContext(DataTimeContext.class,0);
 		}
-		public TerminalNode Add() { return getToken(DataOperationParser.Add, 0); }
-		public TimeContext time() {
-			return getRuleContext(TimeContext.class,0);
-		}
-		public TerminalNode Substract() { return getToken(DataOperationParser.Substract, 0); }
 		public ExpressionResultDataContext expressionResultData() {
 			return getRuleContext(ExpressionResultDataContext.class,0);
 		}
+		public TerminalNode Substract() { return getToken(DataOperationParser.Substract, 0); }
 		public ExpressionResultTimeContext expressionResultTime() {
 			return getRuleContext(ExpressionResultTimeContext.class,0);
 		}
@@ -259,41 +222,41 @@ public class DataOperationParser extends Parser {
 		int _parentState = getState();
 		ExpressionResultDataContext _localctx = new ExpressionResultDataContext(_ctx, _parentState);
 		ExpressionResultDataContext _prevctx = _localctx;
-		int _startState = 6;
-		enterRecursionRule(_localctx, 6, RULE_expressionResultData, _p);
+		int _startState = 4;
+		enterRecursionRule(_localctx, 4, RULE_expressionResultData, _p);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(36);
+			setState(34);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 			case 1:
 				{
+				setState(18);
+				timeSpan();
+				setState(19);
+				match(Add);
 				setState(20);
 				dataTime();
-				setState(21);
-				match(Add);
-				setState(22);
-				time();
 				}
 				break;
 			case 2:
 				{
-				setState(24);
-				time();
-				setState(25);
+				setState(22);
+				timeSpan();
+				setState(23);
 				match(Add);
-				setState(26);
-				dataTime();
+				setState(24);
+				expressionResultData(5);
 				}
 				break;
 			case 3:
 				{
-				setState(28);
+				setState(26);
 				dataTime();
-				setState(29);
+				setState(27);
 				_la = _input.LA(1);
 				if ( !(_la==Add || _la==Substract) ) {
 				_errHandler.recoverInline(this);
@@ -303,23 +266,31 @@ public class DataOperationParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(30);
-				time();
+				setState(28);
+				timeSpan();
 				}
 				break;
 			case 4:
 				{
+				setState(30);
+				dataTime();
+				setState(31);
+				_la = _input.LA(1);
+				if ( !(_la==Add || _la==Substract) ) {
+				_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
 				setState(32);
-				time();
-				setState(33);
-				match(Add);
-				setState(34);
-				expressionResultData(1);
+				expressionResultTime(0);
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(46);
+			setState(44);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -327,16 +298,16 @@ public class DataOperationParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(44);
+					setState(42);
 					_errHandler.sync(this);
 					switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
 					case 1:
 						{
 						_localctx = new ExpressionResultDataContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expressionResultData);
-						setState(38);
-						if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-						setState(39);
+						setState(36);
+						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+						setState(37);
 						_la = _input.LA(1);
 						if ( !(_la==Add || _la==Substract) ) {
 						_errHandler.recoverInline(this);
@@ -346,17 +317,17 @@ public class DataOperationParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(40);
-						expressionResultTime(0);
+						setState(38);
+						timeSpan();
 						}
 						break;
 					case 2:
 						{
 						_localctx = new ExpressionResultDataContext(_parentctx, _parentState);
 						pushNewRecursionContext(_localctx, _startState, RULE_expressionResultData);
-						setState(41);
-						if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
-						setState(42);
+						setState(39);
+						if (!(precpred(_ctx, 1))) throw new FailedPredicateException(this, "precpred(_ctx, 1)");
+						setState(40);
 						_la = _input.LA(1);
 						if ( !(_la==Add || _la==Substract) ) {
 						_errHandler.recoverInline(this);
@@ -366,14 +337,14 @@ public class DataOperationParser extends Parser {
 							_errHandler.reportMatch(this);
 							consume();
 						}
-						setState(43);
-						time();
+						setState(41);
+						expressionResultTime(0);
 						}
 						break;
 					}
 					} 
 				}
-				setState(48);
+				setState(46);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,2,_ctx);
 			}
@@ -390,6 +361,78 @@ public class DataOperationParser extends Parser {
 		return _localctx;
 	}
 
+	public static class ExpressionResultDataRightERTContext extends ParserRuleContext {
+		public ExpressionResultTimeContext expressionResultTime() {
+			return getRuleContext(ExpressionResultTimeContext.class,0);
+		}
+		public TerminalNode Add() { return getToken(DataOperationParser.Add, 0); }
+		public DataTimeContext dataTime() {
+			return getRuleContext(DataTimeContext.class,0);
+		}
+		public ExpressionResultDataContext expressionResultData() {
+			return getRuleContext(ExpressionResultDataContext.class,0);
+		}
+		public ExpressionResultDataRightERTContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_expressionResultDataRightERT; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof DataOperationListener ) ((DataOperationListener)listener).enterExpressionResultDataRightERT(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof DataOperationListener ) ((DataOperationListener)listener).exitExpressionResultDataRightERT(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof DataOperationVisitor ) return ((DataOperationVisitor<? extends T>)visitor).visitExpressionResultDataRightERT(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final ExpressionResultDataRightERTContext expressionResultDataRightERT() throws RecognitionException {
+		ExpressionResultDataRightERTContext _localctx = new ExpressionResultDataRightERTContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_expressionResultDataRightERT);
+		try {
+			setState(55);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(47);
+				expressionResultTime(0);
+				setState(48);
+				match(Add);
+				setState(49);
+				dataTime();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(51);
+				expressionResultTime(0);
+				setState(52);
+				match(Add);
+				setState(53);
+				expressionResultData(0);
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static class ExpressionResultTimeContext extends ParserRuleContext {
 		public List<DataTimeContext> dataTime() {
 			return getRuleContexts(DataTimeContext.class);
@@ -397,19 +440,25 @@ public class DataOperationParser extends Parser {
 		public DataTimeContext dataTime(int i) {
 			return getRuleContext(DataTimeContext.class,i);
 		}
-		public TerminalNode Substract() { return getToken(DataOperationParser.Substract, 0); }
-		public List<TimeContext> time() {
-			return getRuleContexts(TimeContext.class);
+		public List<TerminalNode> Substract() { return getTokens(DataOperationParser.Substract); }
+		public TerminalNode Substract(int i) {
+			return getToken(DataOperationParser.Substract, i);
 		}
-		public TimeContext time(int i) {
-			return getRuleContext(TimeContext.class,i);
-		}
-		public TerminalNode Add() { return getToken(DataOperationParser.Add, 0); }
 		public List<ExpressionResultDataContext> expressionResultData() {
 			return getRuleContexts(ExpressionResultDataContext.class);
 		}
 		public ExpressionResultDataContext expressionResultData(int i) {
 			return getRuleContext(ExpressionResultDataContext.class,i);
+		}
+		public List<TimeSpanContext> timeSpan() {
+			return getRuleContexts(TimeSpanContext.class);
+		}
+		public TimeSpanContext timeSpan(int i) {
+			return getRuleContext(TimeSpanContext.class,i);
+		}
+		public List<TerminalNode> Add() { return getTokens(DataOperationParser.Add); }
+		public TerminalNode Add(int i) {
+			return getToken(DataOperationParser.Add, i);
 		}
 		public List<ExpressionResultTimeContext> expressionResultTime() {
 			return getRuleContexts(ExpressionResultTimeContext.class);
@@ -452,72 +501,54 @@ public class DataOperationParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(74);
+			setState(85);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
 			case 1:
 				{
-				setState(50);
+				setState(58);
 				dataTime();
-				setState(51);
+				setState(59);
 				match(Substract);
-				setState(52);
+				setState(60);
 				dataTime();
 				}
 				break;
 			case 2:
 				{
-				setState(54);
-				time();
-				setState(55);
-				_la = _input.LA(1);
-				if ( !(_la==Add || _la==Substract) ) {
-				_errHandler.recoverInline(this);
-				}
-				else {
-					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-					_errHandler.reportMatch(this);
-					consume();
-				}
-				setState(56);
-				time();
+				setState(62);
+				dataTime();
+				setState(63);
+				match(Substract);
+				setState(64);
+				expressionResultData(0);
 				}
 				break;
 			case 3:
 				{
-				setState(58);
+				setState(66);
 				expressionResultData(0);
-				setState(59);
+				setState(67);
 				match(Substract);
-				setState(60);
-				expressionResultData(0);
+				setState(68);
+				dataTime();
 				}
 				break;
 			case 4:
 				{
-				setState(62);
+				setState(70);
 				expressionResultData(0);
-				setState(63);
+				setState(71);
 				match(Substract);
-				setState(64);
-				dataTime();
+				setState(72);
+				expressionResultData(0);
 				}
 				break;
 			case 5:
 				{
-				setState(66);
-				dataTime();
-				setState(67);
-				match(Substract);
-				setState(68);
-				expressionResultData(0);
-				}
-				break;
-			case 6:
-				{
-				setState(70);
-				time();
-				setState(71);
+				setState(74);
+				timeSpan();
+				setState(75);
 				_la = _input.LA(1);
 				if ( !(_la==Add || _la==Substract) ) {
 				_errHandler.recoverInline(this);
@@ -527,13 +558,45 @@ public class DataOperationParser extends Parser {
 					_errHandler.reportMatch(this);
 					consume();
 				}
-				setState(72);
+				setState(76);
+				timeSpan();
+				}
+				break;
+			case 6:
+				{
+				setState(78);
+				timeSpan();
+				setState(79);
+				_la = _input.LA(1);
+				if ( !(_la==Add || _la==Substract) ) {
+				_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
+				setState(80);
+				expressionResultTime(0);
+				setState(81);
+				expressionResultTime(0);
+				setState(82);
+				_la = _input.LA(1);
+				if ( !(_la==Add || _la==Substract) ) {
+				_errHandler.recoverInline(this);
+				}
+				else {
+					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+					_errHandler.reportMatch(this);
+					consume();
+				}
+				setState(83);
 				expressionResultTime(1);
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(84);
+			setState(92);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
@@ -541,53 +604,27 @@ public class DataOperationParser extends Parser {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
 					_prevctx = _localctx;
 					{
-					setState(82);
-					_errHandler.sync(this);
-					switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
-					case 1:
-						{
-						_localctx = new ExpressionResultTimeContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expressionResultTime);
-						setState(76);
-						if (!(precpred(_ctx, 6))) throw new FailedPredicateException(this, "precpred(_ctx, 6)");
-						setState(77);
-						_la = _input.LA(1);
-						if ( !(_la==Add || _la==Substract) ) {
-						_errHandler.recoverInline(this);
-						}
-						else {
-							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-							_errHandler.reportMatch(this);
-							consume();
-						}
-						setState(78);
-						expressionResultTime(7);
-						}
-						break;
-					case 2:
-						{
-						_localctx = new ExpressionResultTimeContext(_parentctx, _parentState);
-						pushNewRecursionContext(_localctx, _startState, RULE_expressionResultTime);
-						setState(79);
-						if (!(precpred(_ctx, 4))) throw new FailedPredicateException(this, "precpred(_ctx, 4)");
-						setState(80);
-						_la = _input.LA(1);
-						if ( !(_la==Add || _la==Substract) ) {
-						_errHandler.recoverInline(this);
-						}
-						else {
-							if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
-							_errHandler.reportMatch(this);
-							consume();
-						}
-						setState(81);
-						time();
-						}
-						break;
+					{
+					_localctx = new ExpressionResultTimeContext(_parentctx, _parentState);
+					pushNewRecursionContext(_localctx, _startState, RULE_expressionResultTime);
+					setState(87);
+					if (!(precpred(_ctx, 2))) throw new FailedPredicateException(this, "precpred(_ctx, 2)");
+					setState(88);
+					_la = _input.LA(1);
+					if ( !(_la==Add || _la==Substract) ) {
+					_errHandler.recoverInline(this);
+					}
+					else {
+						if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
+						_errHandler.reportMatch(this);
+						consume();
+					}
+					setState(89);
+					timeSpan();
 					}
 					} 
 				}
-				setState(86);
+				setState(94);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,5,_ctx);
 			}
@@ -608,14 +645,17 @@ public class DataOperationParser extends Parser {
 		public ExpressionResultDataContext expressionResultData() {
 			return getRuleContext(ExpressionResultDataContext.class,0);
 		}
+		public ExpressionResultDataRightERTContext expressionResultDataRightERT() {
+			return getRuleContext(ExpressionResultDataRightERTContext.class,0);
+		}
 		public ExpressionResultTimeContext expressionResultTime() {
 			return getRuleContext(ExpressionResultTimeContext.class,0);
 		}
-		public TimeContext time() {
-			return getRuleContext(TimeContext.class,0);
-		}
 		public DataTimeContext dataTime() {
 			return getRuleContext(DataTimeContext.class,0);
+		}
+		public TimeSpanContext timeSpan() {
+			return getRuleContext(TimeSpanContext.class,0);
 		}
 		public ExpressionRootContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -640,35 +680,42 @@ public class DataOperationParser extends Parser {
 		ExpressionRootContext _localctx = new ExpressionRootContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_expressionRoot);
 		try {
-			setState(91);
+			setState(100);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(87);
+				setState(95);
 				expressionResultData(0);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(88);
-				expressionResultTime(0);
+				setState(96);
+				expressionResultDataRightERT();
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(89);
-				time();
+				setState(97);
+				expressionResultTime(0);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(90);
+				setState(98);
 				dataTime();
+				}
+				break;
+			case 5:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(99);
+				timeSpan();
 				}
 				break;
 			}
@@ -686,7 +733,7 @@ public class DataOperationParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 3:
+		case 2:
 			return expressionResultData_sempred((ExpressionResultDataContext)_localctx, predIndex);
 		case 4:
 			return expressionResultTime_sempred((ExpressionResultTimeContext)_localctx, predIndex);
@@ -696,47 +743,47 @@ public class DataOperationParser extends Parser {
 	private boolean expressionResultData_sempred(ExpressionResultDataContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 0:
-			return precpred(_ctx, 3);
-		case 1:
 			return precpred(_ctx, 2);
+		case 1:
+			return precpred(_ctx, 1);
 		}
 		return true;
 	}
 	private boolean expressionResultTime_sempred(ExpressionResultTimeContext _localctx, int predIndex) {
 		switch (predIndex) {
 		case 2:
-			return precpred(_ctx, 6);
-		case 3:
-			return precpred(_ctx, 4);
+			return precpred(_ctx, 2);
 		}
 		return true;
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\f`\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\3\3\3\3\4\3\4\3\4\3\5\3\5"+
-		"\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5\'\n\5"+
-		"\3\5\3\5\3\5\3\5\3\5\3\5\7\5/\n\5\f\5\16\5\62\13\5\3\6\3\6\3\6\3\6\3\6"+
-		"\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3"+
-		"\6\3\6\3\6\5\6M\n\6\3\6\3\6\3\6\3\6\3\6\3\6\7\6U\n\6\f\6\16\6X\13\6\3"+
-		"\7\3\7\3\7\3\7\5\7^\n\7\3\7\2\4\b\n\b\2\4\6\b\n\f\2\3\3\2\5\6h\2\16\3"+
-		"\2\2\2\4\20\3\2\2\2\6\22\3\2\2\2\b&\3\2\2\2\nL\3\2\2\2\f]\3\2\2\2\16\17"+
-		"\7\13\2\2\17\3\3\2\2\2\20\21\7\f\2\2\21\5\3\2\2\2\22\23\5\2\2\2\23\24"+
-		"\5\4\3\2\24\7\3\2\2\2\25\26\b\5\1\2\26\27\5\6\4\2\27\30\7\5\2\2\30\31"+
-		"\5\4\3\2\31\'\3\2\2\2\32\33\5\4\3\2\33\34\7\5\2\2\34\35\5\6\4\2\35\'\3"+
-		"\2\2\2\36\37\5\6\4\2\37 \t\2\2\2 !\5\4\3\2!\'\3\2\2\2\"#\5\4\3\2#$\7\5"+
-		"\2\2$%\5\b\5\3%\'\3\2\2\2&\25\3\2\2\2&\32\3\2\2\2&\36\3\2\2\2&\"\3\2\2"+
-		"\2\'\60\3\2\2\2()\f\5\2\2)*\t\2\2\2*/\5\n\6\2+,\f\4\2\2,-\t\2\2\2-/\5"+
-		"\4\3\2.(\3\2\2\2.+\3\2\2\2/\62\3\2\2\2\60.\3\2\2\2\60\61\3\2\2\2\61\t"+
-		"\3\2\2\2\62\60\3\2\2\2\63\64\b\6\1\2\64\65\5\6\4\2\65\66\7\6\2\2\66\67"+
-		"\5\6\4\2\67M\3\2\2\289\5\4\3\29:\t\2\2\2:;\5\4\3\2;M\3\2\2\2<=\5\b\5\2"+
-		"=>\7\6\2\2>?\5\b\5\2?M\3\2\2\2@A\5\b\5\2AB\7\6\2\2BC\5\6\4\2CM\3\2\2\2"+
-		"DE\5\6\4\2EF\7\6\2\2FG\5\b\5\2GM\3\2\2\2HI\5\4\3\2IJ\t\2\2\2JK\5\n\6\3"+
-		"KM\3\2\2\2L\63\3\2\2\2L8\3\2\2\2L<\3\2\2\2L@\3\2\2\2LD\3\2\2\2LH\3\2\2"+
-		"\2MV\3\2\2\2NO\f\b\2\2OP\t\2\2\2PU\5\n\6\tQR\f\6\2\2RS\t\2\2\2SU\5\4\3"+
-		"\2TN\3\2\2\2TQ\3\2\2\2UX\3\2\2\2VT\3\2\2\2VW\3\2\2\2W\13\3\2\2\2XV\3\2"+
-		"\2\2Y^\5\b\5\2Z^\5\n\6\2[^\5\4\3\2\\^\5\6\4\2]Y\3\2\2\2]Z\3\2\2\2][\3"+
-		"\2\2\2]\\\3\2\2\2^\r\3\2\2\2\t&.\60LTV]";
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\ri\4\2\t\2\4\3\t"+
+		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\3\2\3\2\3\3\3\3\3\3\3\4\3\4\3\4\3\4"+
+		"\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\3\4\5\4%\n\4\3\4\3\4"+
+		"\3\4\3\4\3\4\3\4\7\4-\n\4\f\4\16\4\60\13\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5"+
+		"\3\5\5\5:\n\5\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6"+
+		"\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\3\6\5\6X\n\6\3\6"+
+		"\3\6\3\6\7\6]\n\6\f\6\16\6`\13\6\3\7\3\7\3\7\3\7\3\7\5\7g\n\7\3\7\2\4"+
+		"\6\n\b\2\4\6\b\n\f\2\4\3\2\f\r\3\2\5\6r\2\16\3\2\2\2\4\20\3\2\2\2\6$\3"+
+		"\2\2\2\b9\3\2\2\2\nW\3\2\2\2\ff\3\2\2\2\16\17\t\2\2\2\17\3\3\2\2\2\20"+
+		"\21\7\13\2\2\21\22\7\f\2\2\22\5\3\2\2\2\23\24\b\4\1\2\24\25\5\2\2\2\25"+
+		"\26\7\5\2\2\26\27\5\4\3\2\27%\3\2\2\2\30\31\5\2\2\2\31\32\7\5\2\2\32\33"+
+		"\5\6\4\7\33%\3\2\2\2\34\35\5\4\3\2\35\36\t\3\2\2\36\37\5\2\2\2\37%\3\2"+
+		"\2\2 !\5\4\3\2!\"\t\3\2\2\"#\5\n\6\2#%\3\2\2\2$\23\3\2\2\2$\30\3\2\2\2"+
+		"$\34\3\2\2\2$ \3\2\2\2%.\3\2\2\2&\'\f\4\2\2\'(\t\3\2\2(-\5\2\2\2)*\f\3"+
+		"\2\2*+\t\3\2\2+-\5\n\6\2,&\3\2\2\2,)\3\2\2\2-\60\3\2\2\2.,\3\2\2\2./\3"+
+		"\2\2\2/\7\3\2\2\2\60.\3\2\2\2\61\62\5\n\6\2\62\63\7\5\2\2\63\64\5\4\3"+
+		"\2\64:\3\2\2\2\65\66\5\n\6\2\66\67\7\5\2\2\678\5\6\4\28:\3\2\2\29\61\3"+
+		"\2\2\29\65\3\2\2\2:\t\3\2\2\2;<\b\6\1\2<=\5\4\3\2=>\7\6\2\2>?\5\4\3\2"+
+		"?X\3\2\2\2@A\5\4\3\2AB\7\6\2\2BC\5\6\4\2CX\3\2\2\2DE\5\6\4\2EF\7\6\2\2"+
+		"FG\5\4\3\2GX\3\2\2\2HI\5\6\4\2IJ\7\6\2\2JK\5\6\4\2KX\3\2\2\2LM\5\2\2\2"+
+		"MN\t\3\2\2NO\5\2\2\2OX\3\2\2\2PQ\5\2\2\2QR\t\3\2\2RS\5\n\6\2ST\5\n\6\2"+
+		"TU\t\3\2\2UV\5\n\6\3VX\3\2\2\2W;\3\2\2\2W@\3\2\2\2WD\3\2\2\2WH\3\2\2\2"+
+		"WL\3\2\2\2WP\3\2\2\2X^\3\2\2\2YZ\f\4\2\2Z[\t\3\2\2[]\5\2\2\2\\Y\3\2\2"+
+		"\2]`\3\2\2\2^\\\3\2\2\2^_\3\2\2\2_\13\3\2\2\2`^\3\2\2\2ag\5\6\4\2bg\5"+
+		"\b\5\2cg\5\n\6\2dg\5\4\3\2eg\5\2\2\2fa\3\2\2\2fb\3\2\2\2fc\3\2\2\2fd\3"+
+		"\2\2\2fe\3\2\2\2g\r\3\2\2\2\t$,.9W^f";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

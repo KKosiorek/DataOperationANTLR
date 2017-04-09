@@ -7,25 +7,15 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface DataOperationListener extends ParseTreeListener {
 	/**
-	 * Enter a parse tree produced by {@link DataOperationParser#data}.
+	 * Enter a parse tree produced by {@link DataOperationParser#timeSpan}.
 	 * @param ctx the parse tree
 	 */
-	void enterData(DataOperationParser.DataContext ctx);
+	void enterTimeSpan(DataOperationParser.TimeSpanContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DataOperationParser#data}.
+	 * Exit a parse tree produced by {@link DataOperationParser#timeSpan}.
 	 * @param ctx the parse tree
 	 */
-	void exitData(DataOperationParser.DataContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link DataOperationParser#time}.
-	 * @param ctx the parse tree
-	 */
-	void enterTime(DataOperationParser.TimeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DataOperationParser#time}.
-	 * @param ctx the parse tree
-	 */
-	void exitTime(DataOperationParser.TimeContext ctx);
+	void exitTimeSpan(DataOperationParser.TimeSpanContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DataOperationParser#dataTime}.
 	 * @param ctx the parse tree
@@ -46,6 +36,16 @@ public interface DataOperationListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpressionResultData(DataOperationParser.ExpressionResultDataContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DataOperationParser#expressionResultDataRightERT}.
+	 * @param ctx the parse tree
+	 */
+	void enterExpressionResultDataRightERT(DataOperationParser.ExpressionResultDataRightERTContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DataOperationParser#expressionResultDataRightERT}.
+	 * @param ctx the parse tree
+	 */
+	void exitExpressionResultDataRightERT(DataOperationParser.ExpressionResultDataRightERTContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DataOperationParser#expressionResultTime}.
 	 * @param ctx the parse tree
